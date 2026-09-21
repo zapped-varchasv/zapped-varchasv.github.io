@@ -45,7 +45,9 @@ For simple updates, edit `data/profile.ts` or `data/projects.ts` using GitHub's 
 
 **Sites:** `.openai/hosting.json` identifies the private Sites project and declares `out/` as the static directory. Preserve that identity when publishing updates. The initial Sites audience is owner-only; public recruiter access requires changing the audience separately.
 
-The starter's optional UI library and Sites tooling are retained for compatibility. Application pages only import the components they use. The primary app has two interactive components: navigation and the accessible image gallery. It does not require server rendering at runtime.
+The starter's optional UI library and Sites tooling are retained for compatibility. Application pages only import the components they use. The site includes active section navigation, an evidence switcher, project search/tool filters, an accessible image gallery and a retail analytics lab. It does not require server rendering at runtime.
+
+The analytics lab uses explicitly labelled synthetic data in `data/analytics-demo.ts`. Channel, quarter, month and metric controls recalculate totals, weighted margins, trends and category rankings. CSV exports contain the currently filtered rows. The example SQL documents the aggregation; no database executes in the browser. Run `node --experimental-strip-types scripts/analytics-demo.test.mjs` to check calculations, filters, row grain and export output. These checks also run before each GitHub Pages deployment.
 
 ## Evidence still needed
 

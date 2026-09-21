@@ -34,7 +34,7 @@ export function HomeSections() {
       <section className="section wrap other-projects">
         <div className="subsection-heading">
           <h2>Other Technical Projects</h2>
-          <p>A little more technical breadth.</p>
+          <p>Supporting work in Python, machine learning and natural language processing.</p>
         </div>
         <div className="small-grid">
           {secondaryProjects.map((p) => (
@@ -107,9 +107,9 @@ export function HomeSections() {
           <div>
             <div className="eyebrow">04 / EXPERIENCE</div>
             <h2 className="section-title">
-              Learning through
+              Applied analytics.
               <br />
-              real work.
+              Business experience.
             </h2>
             <p className="section-intro">
               Analytical work and experience in Australian business.

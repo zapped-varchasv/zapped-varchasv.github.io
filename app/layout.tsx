@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./portfolio.css";
 import { siteUrl } from "@/data/site";
 import { profile } from "@/data/profile";
 

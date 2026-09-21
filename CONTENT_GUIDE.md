@@ -13,6 +13,10 @@ You only need two content files for routine updates. The layout, mobile styles a
 | Add projects, screenshots or case-study descriptions | `data/projects.ts` → `projects` |
 | Smaller ML/technical project cards | `data/projects.ts` → `secondaryProjects` |
 | Change the deployment domain | `data/site.ts` or `NEXT_PUBLIC_SITE_URL` |
+| Home-page evidence highlights | `data/evidence.ts` (keep claims consistent with your resume) |
+| Interactive demo dataset | `data/analytics-demo.ts` (synthetic data, separate from your real projects) |
+
+The project search and tool filters update automatically from featured projects. Tools labelled “planned” are excluded from the tool filters. The analytics lab recalculates KPIs, chart values, category rankings and CSV exports from the selected rows. Its demonstration label must remain visible: these are sample figures, not employer or client results.
 
 Keep text inside quotation marks. Keep commas between entries. Use `\"` when you need a double quote inside a quoted sentence. Do not change the property names on the left of the colon.
 

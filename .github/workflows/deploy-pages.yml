@@ -27,6 +27,7 @@ jobs:
       - uses: actions/configure-pages@v5
       - run: npm ci
       - run: npm run typecheck
+      - run: node --experimental-strip-types scripts/analytics-demo.test.mjs
       - run: npm run build
       - uses: actions/upload-pages-artifact@v4
         with:

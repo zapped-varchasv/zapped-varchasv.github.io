@@ -18,3 +18,6 @@ Curated secondary repositories were observed at https://github.com/zapped-varcha
 Still to supply in `data/projects.ts`: original data sources/licences, reporting periods, final row counts, detailed preparation rules, model diagnostics, substantive findings, full screenshots and project-specific repository URLs. The retail SQL/star-schema workflow is a proposed extension. The reporting pipeline is planned. Illustration charts are clearly labelled and are not evidence.
 
 No cloud-platform proficiency or Microsoft certification is claimed without verification. Course completions are named as courses and not misrepresented as Microsoft/DataCamp professional certifications.
+# Interactive analytics demonstration
+
+The retail analytics lab added in September 2026 uses 36 synthetic month × channel × category rows. Its totals, margins and observations are computed from the sample in `data/analytics-demo.ts`. These figures are not Woolworths, Kmart or DATACAREER.APP data and must not be described as employment achievements. Hero evidence highlights in `data/evidence.ts` use the previously verified resume claims.

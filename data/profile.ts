@@ -2,7 +2,7 @@
 // A step-by-step guide with copy/paste examples lives in CONTENT_GUIDE.md.
 export const profile = {
   name: "Varchasv Gupta",
-  tagline: "Clarity from complexity.",
+  tagline: "Reliable data. Clear decisions.",
   role: "Data Analyst",
   headlineTools: "SQL · Power BI · Excel · Python",
   location: "Sydney, Australia",
@@ -14,7 +14,7 @@ export const profile = {
   contactCardDescription:
     "Based in Sydney. Ready to bring careful analysis and clear reporting to a team.",
   intro:
-    "Master of Data Science graduate based in Sydney, focused on turning complex and messy datasets into clear reporting, actionable insights and better business decisions.",
+    "Data Analyst Intern and Master of Data Science graduate in Sydney. I clean and validate complex datasets, build Power BI reporting, and translate analysis into decisions people can act on.",
   github: "https://github.com/zapped-varchasv",
   linkedin: "https://www.linkedin.com/in/varchasv-gupta-2b1a65205/",
   email: "guptavarchasv8@gmail.com",
