@@ -24,6 +24,7 @@ export type Project = {
   pipeline: string[];
   repository?: string;
   dashboardUrl?: string;
+  downloads?: { label: string; href: string }[];
   thumbnailCaption?: string;
   insightNote?: string;
   recommendationNote?: string;
@@ -32,6 +33,55 @@ export type Project = {
   screenshots: { src: string; alt: string }[];
 };
 export const projects: Project[] = [
+  {
+    title: "Australian Airline Reliability",
+    featured: true,
+    slug: "australian-airline-reliability",
+    subtitle: "Turning Australian flight data into an evidence-based operations review with SQL, Python, Power BI and Excel.",
+    description: "An end-to-end analysis of BITRE's domestic airline on-time performance data for 2023–2025. A reproducible Python pipeline separates reporting routes from network totals, audits the source and loads a dimensional SQL model. Power BI and Excel turn the validated counts into interactive reporting for an operations audience.",
+    business: "Which Australian routes should an operations team investigate first, considering cancellation volume, reliability and reporting coverage?",
+    category: "04 / OPERATIONS ANALYTICS",
+    status: "End-to-end project",
+    tools: ["SQL", "Python", "Power BI", "Excel", "DAX", "Power Query"],
+    visual: "pipeline",
+    dataset: {
+      source: "Australian Government, Bureau of Infrastructure and Transport Research Economics (BITRE), domestic airline on-time performance time series. Downloaded 22 September 2026; analysis covers January 2023–December 2025.",
+      records: "12,860 month × airline × directional-route records; 128 routes and 7 airlines across the three-year cohort.",
+      features: "Scheduled, flown and cancelled sectors; on-time and delayed arrivals/departures; date, airline, origin and destination dimensions. Separate monthly network benchmark.",
+      limitations: "Reporting-route coverage changes and is narrower than the full domestic network. Flight counts do not measure passengers, delay duration or causes. Airline comparisons reflect route mix. No claim of affiliation, savings or commercial deployment.",
+    },
+    preparation: [
+      "Separated 17,451 source rows by scope to prevent double-counting route detail and published totals; standardised six inconsistent airline labels.",
+      "Validated unique keys, required values, non-negative counts and scheduled = flown + cancelled. All 29,960 route/month/count reconciliation checks passed.",
+      "Preserved four failed partition checks across two July 2025 network rows in a public exception audit. These rows never enter the route fact table.",
+      "Built a contiguous daily date dimension, foreign-key constraints and seven acceptance tests covering weighted metrics, coverage, rolling windows and database integrity.",
+    ],
+    analysis: "SQL joins, CTEs and window functions calculate weighted KPIs, route cancellation rankings, concentration shares, three-month trends and a fixed-route year-on-year comparison. Power BI provides year, airline, origin and route slicers, cross-filtering, DAX measures and a detailed route review. Excel uses a year selector, SUMIFS-based calculations, a native trend chart and a filterable route table. Source data and reproducible scripts are versioned in GitHub.",
+    model: "A monthly route-airline fact joins to Date, Airline and Route dimensions through one-to-many relationships. The separate network benchmark joins only to Date. Cancellation rate uses cancelled / scheduled; punctuality uses on-time / flown. Percentages are calculated from aggregated counts, never averaged across rows.",
+    insights: [
+      "Sydney–Melbourne in both directions accounted for 2,190 cancellations in 2025: 20.7% of cancellations across the reporting routes.",
+      "Canberra–Sydney had 474 cancellations from 7,659 scheduled sectors (6.19%), versus Sydney–Melbourne's 1,103 from 25,294 (4.36%). Volume and rate point to different investigation priorities.",
+      "For 116 routes reported in every month of both years, arrival punctuality improved from 73.19% in 2024 to 75.80% in 2025, a 2.61 percentage-point increase.",
+      "The reporting-route arrival OTP was 75.83% in 2025; the separate network benchmark rounded to 76.9%, matching BITRE's annual publication.",
+    ],
+    recommendations: [
+      "Start a Sydney–Melbourne corridor review because of its share of cancellation volume; request flight-level cause codes and aircraft-rotation data before attributing causes.",
+      "Include smaller routes with high cancellation rates, checking scheduled volume and months reported before comparing them.",
+      "Track a consistent route cohort in recurring reporting and keep selected-route KPIs visibly separate from entire-network benchmarks.",
+    ],
+    recommendationNote: "Proposed investigation steps based on descriptive public data; business impact has not been measured.",
+    outcome: "Reconciled 12,860 route records, built a tested SQL model and delivered interactive Power BI and Excel reports. Identified a corridor responsible for 20.7% of reporting-route cancellations in 2025.",
+    pipeline: ["BITRE source", "Python audit", "SQL model", "Power BI + Excel", "Operations review"],
+    repository: "https://github.com/zapped-varchasv/SQL/tree/main/australian-airline-reliability",
+    downloads: [
+      { label: "Download Power BI report (.pbix)", href: "https://github.com/zapped-varchasv/SQL/raw/refs/heads/main/australian-airline-reliability/reports/Australian_Airline_Reliability.pbix" },
+      { label: "Download Excel workbook", href: "https://github.com/zapped-varchasv/SQL/raw/refs/heads/main/australian-airline-reliability/reports/Australian_Airline_Reliability.xlsx" },
+      { label: "Open Power BI project files", href: "https://github.com/zapped-varchasv/SQL/tree/main/australian-airline-reliability/powerbi" },
+      { label: "Read the SQL analysis", href: "https://github.com/zapped-varchasv/SQL/blob/main/australian-airline-reliability/sql/02_analysis_views.sql" },
+      { label: "View BITRE source", href: "https://www.bitre.gov.au/resource/aviation/airline-time-performance-monthly-reports-and-time-series-data" },
+    ],
+    screenshots: [{ src: "/projects/airline-excel-dashboard.png", alt: "Australian Airline Reliability Excel dashboard: year selector, weighted 2025 KPIs and monthly punctuality chart calculated from BITRE data." }],
+  },
   {
     title: "Retail Sales & Performance Analytics",
     featured: true,

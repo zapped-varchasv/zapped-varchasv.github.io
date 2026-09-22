@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./portfolio.css";
-import { siteUrl } from "@/data/site";
+import { siteUrl, withBasePath } from "@/data/site";
 import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     locale: "en_AU",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: withBasePath("/favicon.svg"),
+    shortcut: withBasePath("/favicon.svg"),
   },
 };
 

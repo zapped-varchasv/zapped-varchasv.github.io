@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { ProjectVisual } from "@/components/project-visual";
 import type { Project } from "@/data/projects";
+import { withBasePath } from "@/data/site";
 export function DashboardGallery({ project }: { project: Project }) {
   return (
     <div className="gallery">
@@ -17,7 +18,7 @@ export function DashboardGallery({ project }: { project: Project }) {
           <Dialog key={shot.src}>
             <DialogTrigger asChild>
               <button className="gallery-trigger">
-                <img src={shot.src} alt={shot.alt} />
+                <img src={withBasePath(shot.src)} alt={shot.alt} />
                 <span>
                   <Expand size={16} />
                   Open larger
@@ -27,7 +28,7 @@ export function DashboardGallery({ project }: { project: Project }) {
             <DialogContent className="gallery-dialog">
               <DialogTitle>{project.title}</DialogTitle>
               <DialogDescription>{shot.alt}</DialogDescription>
-              <img src={shot.src} alt={shot.alt} />
+              <img src={withBasePath(shot.src)} alt={shot.alt} />
             </DialogContent>
           </Dialog>
         ))

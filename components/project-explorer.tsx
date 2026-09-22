@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Search, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
+import { withBasePath } from "@/data/site";
 export function ProjectExplorer() {
   const [tool, setTool] = useState("All");
   const [query, setQuery] = useState("");
@@ -74,7 +75,7 @@ export function ProjectExplorer() {
                 aria-label={"View " + p.title + " dashboard"}
               >
                 <img
-                  src={p.screenshots[0].src}
+                  src={withBasePath(p.screenshots[0].src)}
                   alt={p.screenshots[0].alt}
                   width="800"
                   height="239"

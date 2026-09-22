@@ -77,11 +77,11 @@ Credentials support `name`, `status` and an optional `url`. Use `status: "Comple
 
 ### Edit directly on GitHub (no installation needed)
 
-1. Open [your portfolio repository](https://github.com/zapped-varchasv/zapped-varchasv.github.io).
+1. Open [your portfolio repository](https://github.com/zapped-varchasv/varchasvgupta.github.io).
 2. Open `data/profile.ts` for experience or descriptions, or `data/projects.ts` for projects.
 3. Click the pencil icon, make your changes using the examples above, and click **Commit changes**. Commit to `main` to publish.
 4. Open the **Actions** tab. Wait for **Publish portfolio** to finish with a green check.
-5. Refresh [your live portfolio](https://zapped-varchasv.github.io/). Updates can take a few minutes.
+5. Refresh [your live portfolio](https://zapped-varchasv.github.io/varchasvgupta.github.io/). Updates can take a few minutes.
 
 For images, open `public/projects` and use **Add file → Upload files**, then reference the filename in `data/projects.ts`. Upload the image before committing the content that uses it. Repository files and committed history are public: only include information you want to share.
 
@@ -94,3 +94,6 @@ From the portfolio folder, run `npm run dev`. It opens a local development serve
 Saving a local file does **not** update the live website. Commit and push your changes to the GitHub repository's `main` branch. The included workflow checks and publishes the site automatically after every push to `main`. Changes on other branches stay unpublished until merged into `main`.
 
 You can also ask Codex directly: “Add this experience to my portfolio” or “Add this project using these screenshots and findings.” The same content files are the source of truth either way. There is no public admin panel or database to maintain.
+# Australian airline project
+
+The new case study lives in `data/projects.ts` under `australian-airline-reliability`. Its report downloads use the optional `downloads` list; add or change `{ label, href }` entries there. Update the headline evidence in `data/evidence.ts` if findings change. The SQL repository holds the pipeline, data audit, Power BI source and Excel workbook. Keep published metrics tied to regenerated SQL results, and keep reporting-route figures separate from industry totals.

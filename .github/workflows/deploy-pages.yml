@@ -17,7 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_TELEMETRY_DISABLED: 1
-      NEXT_PUBLIC_SITE_URL: https://zapped-varchasv.github.io
+      NEXT_PUBLIC_SITE_URL: https://zapped-varchasv.github.io/varchasvgupta.github.io
+      NEXT_PUBLIC_BASE_PATH: /varchasvgupta.github.io
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,6 +29,7 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: node --experimental-strip-types scripts/analytics-demo.test.mjs
+      - run: node --experimental-strip-types scripts/site-path.test.mjs
       - run: npm run build
       - uses: actions/upload-pages-artifact@v4
         with:

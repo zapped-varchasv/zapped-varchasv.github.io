@@ -3,6 +3,7 @@ import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 const root = path.resolve("out");
 const port = Number(process.env.PORT || 3000);
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 const mime = {
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
@@ -15,7 +16,11 @@ const mime = {
 createServer(async (req, res) => {
   try {
     const url = new URL(req.url, "http://localhost");
-    let file = path.resolve(root, "." + decodeURIComponent(url.pathname));
+    if (basePath && url.pathname !== basePath && !url.pathname.startsWith(basePath + "/")) {
+      res.writeHead(404); res.end("Page outside the configured base path."); return;
+    }
+    const pathname = basePath ? url.pathname.slice(basePath.length) || "/" : url.pathname;
+    let file = path.resolve(root, "." + decodeURIComponent(pathname));
     if (file !== root && !file.startsWith(root + path.sep)) {
       res.writeHead(403);
       res.end();
@@ -39,5 +44,5 @@ createServer(async (req, res) => {
     res.end("Unable to serve this page.");
   }
 }).listen(port, "127.0.0.1", () =>
-  console.log(`Portfolio preview: http://localhost:${port}/`),
+  console.log(`Portfolio preview: http://localhost:${port}${basePath}/`),
 );

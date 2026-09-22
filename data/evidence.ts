@@ -1,6 +1,16 @@
 // Keep these highlights tied to verifiable work. Update alongside your resume.
 export const evidence = [
   {
+    label: "SQL analytics",
+    value: "12,860",
+    unit: "Australian flight records validated",
+    title: "From public data to an operations decision",
+    description: "Reconciled BITRE route counts, built a dimensional SQL model and created Power BI and Excel reports. Sydney–Melbourne in both directions contributed 20.7% of reporting-route cancellations in 2025.",
+    source: "Australian Airline Reliability · Reproducible analysis",
+    href: "/projects/australian-airline-reliability/",
+    capabilities: ["SQL", "Python", "Power BI + Excel"],
+  },
+  {
     label: "Data quality",
     value: "104,461",
     unit: "records processed",

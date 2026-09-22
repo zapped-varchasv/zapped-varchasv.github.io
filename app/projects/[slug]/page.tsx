@@ -173,6 +173,17 @@ export default async function ProjectPage({
             <section id="dashboard">
               <h2>Dashboard</h2>
               <DashboardGallery project={p} />
+              {p.downloads && (
+                <ul className="project-downloads">
+                  {p.downloads.map((download) => (
+                    <li key={download.href}>
+                      <a className="text-link" href={download.href} target="_blank" rel="noreferrer">
+                        {download.label} <ArrowUpRight size={16} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
               {p.dashboardUrl && (
                 <a
                   className="text-link"
@@ -256,7 +267,7 @@ export default async function ProjectPage({
       </main>
       <footer className="wrap footer">
         <span>© {new Date().getFullYear()} Varchasv Gupta</span>
-        <a href="/#contact">Let’s connect ↗</a>
+        <Link href="/#contact">Let’s connect ↗</Link>
       </footer>
     </>
   );

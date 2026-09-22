@@ -1,5 +1,6 @@
 "use client";
 import type { AnchorHTMLAttributes, MouseEvent } from "react";
+import { withBasePath } from "@/data/site";
 
 // Handle same-document navigation explicitly so closing the mobile menu and
 // Next's scroll restoration cannot race the native fragment scroll.
@@ -9,6 +10,7 @@ export function SectionLink({
   children,
   ...props
 }: AnchorHTMLAttributes<HTMLAnchorElement>) {
+  const resolvedHref = href ? withBasePath(href) : href;
   function navigate(event: MouseEvent<HTMLAnchorElement>) {
     onClick?.(event);
     if (
@@ -21,7 +23,7 @@ export function SectionLink({
       !href
     )
       return;
-    const destination = new URL(href, window.location.href);
+    const destination = new URL(resolvedHref!, window.location.href);
     if (
       destination.origin !== window.location.origin ||
       destination.pathname !== window.location.pathname ||
@@ -41,7 +43,7 @@ export function SectionLink({
     });
   }
   return (
-    <a {...props} href={href} onClick={navigate}>
+    <a {...props} href={resolvedHref} onClick={navigate}>
       {children}
     </a>
   );

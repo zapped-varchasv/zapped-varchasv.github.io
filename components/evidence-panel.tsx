@@ -9,9 +9,9 @@ export function EvidencePanel() {
   return (
     <aside className="evidence-panel" aria-label="Selected project evidence">
       <div className="panel-topline">
-        <span>SELECTED EXPERIENCE</span>
+        <span>SELECTED WORK</span>
         <span className="evidence-status">
-          <Check size={12} /> Resume-backed
+          <Check size={12} /> Evidence-linked
         </span>
       </div>
       <div

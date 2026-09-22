@@ -35,7 +35,9 @@ All case studies use one typed data model and a reusable page at `app/projects/[
 
 ## Deployment
 
-**GitHub Pages (primary):** [zapped-varchasv.github.io](https://zapped-varchasv.github.io/) is published from [this repository](https://github.com/zapped-varchasv/zapped-varchasv.github.io). In **Settings → Pages**, set **Source** to **GitHub Actions**. `.github/workflows/deploy-pages.yml` installs the locked dependencies, type-checks, builds the static site and deploys `out/` after every push to `main`. Follow progress in the **Actions** tab. No deployment token or secret is needed. You can also select **Publish portfolio → Run workflow** to republish.
+**GitHub Pages (primary):** [Live portfolio](https://zapped-varchasv.github.io/varchasvgupta.github.io/) is published from [this repository](https://github.com/zapped-varchasv/varchasvgupta.github.io). In **Settings → Pages**, set **Source** to **GitHub Actions**. `.github/workflows/deploy-pages.yml` installs the locked dependencies, type-checks, tests, builds the static site and deploys `out/` after every push to `main`. Follow progress in the **Actions** tab. No deployment token or secret is needed. You can also select **Publish portfolio → Run workflow** to republish.
+
+The renamed repository uses a project-site URL. The workflow sets `NEXT_PUBLIC_BASE_PATH=/varchasvgupta.github.io` and `NEXT_PUBLIC_SITE_URL` to the full URL. `next.config.ts` applies the base path to Next routes; `withBasePath` in `data/site.ts` handles plain image/anchor URLs. Leave the base path empty for a root-hosted custom domain. For a local production preview of the project path, build and run `scripts/serve-static.mjs` with the same base-path environment variable.
 
 For simple updates, edit `data/profile.ts` or `data/projects.ts` using GitHub's pencil button, then commit to `main`. See the content guide for copy/paste examples. The public repository and its history must contain only information intended for public sharing.
 
